@@ -1,4 +1,3 @@
-import React, {Component, PropTypes} from 'react';
 /**
   this is an HOC that pass a property "muiTheme"
   containing the current MUI Theme in the context to the enanched component
@@ -13,10 +12,16 @@ import React, {Component, PropTypes} from 'react';
     );
   }
   export default withMuiTheme(MyButton);
-
 */
+
+import React, {Component, PropTypes} from 'react';
+
 const withMuiTheme = (Comp) => class WithMuiTheme extends Component {
-  static contextTypes = {muiTheme: PropTypes.object};
+
+  static contextTypes = {
+    muiTheme: PropTypes.object,
+  };
+
   render() {
     return <Comp {...this.props} muiTheme={this.context.muiTheme} />;
   }
